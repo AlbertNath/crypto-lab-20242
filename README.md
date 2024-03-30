@@ -9,12 +9,12 @@
 - Paola Vargas Bravo
 
 #### Prerequisitos
-- VirtualBox 
+- VirtualBox
 - gcc
-– gdb
-– bash
-– python
-– C
+- gdb
+- bash
+- python
+- C
 
 #### Descripción
 En total se cuenta con 6 archivos. Mismos que se encuentran divididos en dos carpetas:
