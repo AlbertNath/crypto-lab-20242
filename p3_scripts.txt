@@ -22,3 +22,6 @@ let blinkdiv = document.getElementById('blink');
 let isVisible = true;
 setInterval(function(){if(isVisible){blink.style.visibility = 'hidden';} else {blink.style.visibility = 'visible';} isVisible=!isVisible;}, 500);
 </script>
+
+7:
+%3Cscript%3E+++++window.location.replace%28%27https%3A%2F%2Fyoutu.be%2FdQw4w9WgXcQ%3Ft%3D49%27%29%3B+%3C%2Fscript%3E
