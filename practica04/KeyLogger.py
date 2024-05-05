@@ -32,7 +32,7 @@ def main():
     keyboard.on_release(callback)
     
     while True:
-        if keyboard.is_pressed('esc'):
+        if input() == 'exit':
             print("Terminando la ejecución del programa...")
             break
             
