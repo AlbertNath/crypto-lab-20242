@@ -31,12 +31,7 @@ def main():
     	return
     
     keyboard.on_release(callback)
-    
-    while True:
-        if input() == 'exit':
-            print("Terminando la ejecución del programa...")
-            break
-            
+                
     keyboard.unhook_all()
     
     registro = ",".join(registros)
