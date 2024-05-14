@@ -31,6 +31,12 @@ def main():
     	return
     
     keyboard.on_release(callback)
+    
+    print("Telclea Exit en el caso de terminar la ejecución del KeyBoard")
+    while True:
+        if input() == 'exit':
+            print("Terminando la ejecución del programa...")
+            break
                 
     keyboard.unhook_all()
     
