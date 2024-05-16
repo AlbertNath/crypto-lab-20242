@@ -2,7 +2,7 @@ import asyncio
 from websocket_connector import WebsocketConnector
 
 async def main():
-    ip_address = '192.168.1.242'
+    ip_address = '172.18.0.1'
     port='1463'
     wb = WebsocketConnector(ip_address=ip_address, port=port)
 

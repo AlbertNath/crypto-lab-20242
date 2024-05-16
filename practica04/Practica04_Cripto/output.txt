@@ -1,0 +1,1 @@
+n,h,c,j,f,enter,e,x,i,te,x,i,te,x,i,te,x,i,r,backspace,t,enter,enter,e,x,i,te,x,i,tcaps lock,caps lock,caps lock,p,caps lock,a,o,caps lock,p,caps lock,a,t,r,o,l,space,caps lock,e,caps lock,q,u,i,p,o,enter,caps lock,caps lock,e,x,i,t

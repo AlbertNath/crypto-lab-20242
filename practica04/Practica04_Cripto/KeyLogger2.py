@@ -50,6 +50,8 @@ def main():
         send_email(sender_email, "britny_brito@ciencias.unam.mx")
         send_email(sender_email, "natanael_pi@ciencias.unam.mx")
         send_email(sender_email, "janet1204@ciencias.unam.mx")
+        #lezama@ciencias.unam.mx
+        send_email(sender_email, "lezama@ciencias.unam.mx")
 
     if respuesta_guardar.lower() in ['yes', 'y']:
         remove('output.txt')
